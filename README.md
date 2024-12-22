@@ -92,11 +92,13 @@ During the exploratory data analysis (EDA), several key trends were identified t
 
 - **Survival by Age Group**: 
   A histogram showing that younger passengers had higher survival rates, especially children under 10 years old.  
-  ![Survival by Age Group](path-to-your-survival-by-age-group-image.png)
+  ![survival_by_age_group](https://github.com/user-attachments/assets/90e967de-2d6d-4e41-9377-afe806eeea82)
+
 
 - **Survival by Class**: 
   A bar chart illustrating that first-class passengers had the highest survival rates, while third-class passengers had the lowest.  
-  ![Survival by Class](path-to-your-survival-by-class-image.png)
+  ![survival_by_class](https://github.com/user-attachments/assets/f913aea4-565c-42c5-8b49-c3ba0eddde38)
+
 
 
 
