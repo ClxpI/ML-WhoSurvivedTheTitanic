@@ -58,13 +58,19 @@ This repository contains a machine learning case study focused on predicting pas
 | **Actual Not Survived** | 92                      | 13                  |
 | **Actual Survived**     | 20                      | 54                  |
 
+A confusion matrix evaluates the model's performance by comparing actual outcomes to predictions. It helps measure metrics like:
+
+- **Accuracy**: Proportion of correct predictions.
+- **Precision**: Proportion of true positive predictions out of all positive predictions.
+- **Recall**: Proportion of true positives correctly identified out of all actual positives.
+
 ![image](https://github.com/user-attachments/assets/fd963f5c-9623-45b0-893d-a9f129fa2579)
 
 
 ---
 
 #### Precision-Recall Curve
-A plot showing the trade-off between precision and recall, demonstrating the model’s ability to classify survival effectively.
+A plot showing the trade-off between precision and recall, demonstrating the model’s ability to classify survival effectively. It is especially useful for imbalanced datasets. The goal is to maximize both precision and recall, shown by a curve approaching the top-right corner.
 
 ![image](https://github.com/user-attachments/assets/0edb32e0-5281-4b1b-bed0-ca4bbc4ef306)
 
@@ -73,6 +79,8 @@ A plot showing the trade-off between precision and recall, demonstrating the mod
 ---
 
 #### Feature Importance
+Feature importance quantifies the influence of each feature on the predictions. It helps identify key variables that contribute to the model's performance.
+
 | Feature        | Importance |
 |----------------|------------|
 | Passenger ID   | 0.187      |
@@ -80,6 +88,8 @@ A plot showing the trade-off between precision and recall, demonstrating the mod
 | Age            | 0.169      |
 | Sex_Male       | 0.146      |
 | Pclass         | 0.078      |
+
+- Features like `Fare`, `Age`, and `Sex_Male` significantly impact survival predictions. However, the high importance of `Passenger ID` may indicate overfitting or a data artifact.
 
 ![image](https://github.com/user-attachments/assets/12ecbcfb-a5e1-41e0-ad1b-0cdce65ffd9b)
 
@@ -91,7 +101,7 @@ A plot showing the trade-off between precision and recall, demonstrating the mod
 During the exploratory data analysis (EDA), several key trends were identified to better understand the factors influencing survival rates:
 
 - **Survival by Age Group**: 
-  A histogram showing that younger passengers had higher survival rates, especially children under 10 years old.  
+  Survival rates varied across age groups, with the highest survival rate observed among passengers aged 17-32. Children under 10 also showed relatively high survival rates, while survival likelihood decreased significantly for passengers older than 50.    
   ![survival_by_age_group](https://github.com/user-attachments/assets/90e967de-2d6d-4e41-9377-afe806eeea82)
 
 
