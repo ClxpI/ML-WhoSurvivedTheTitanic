@@ -101,7 +101,7 @@ Feature importance quantifies the influence of each feature on the predictions. 
 During the exploratory data analysis (EDA), several key trends were identified to better understand the factors influencing survival rates:
 
 - **Survival by Age Group**: 
-  Survival rates varied across age groups, with the highest survival rate observed among passengers aged 17-32. Children under 10 also showed relatively high survival rates, while survival likelihood decreased significantly for passengers older than 50.    
+  Survival rates varied across age groups, with the highest survival rate observed among passengers aged 17-32. Children aged 10 also showed relatively high survival rates, while survival likelihood decreased significantly for passengers older than 50.    
   ![survival_by_age_group](https://github.com/user-attachments/assets/90e967de-2d6d-4e41-9377-afe806eeea82)
 
 
