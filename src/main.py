@@ -14,16 +14,16 @@ import matplotlib.pyplot as plt
 
 
 # Set the directory path where the CSV files are located
-directory_path = "E:\\Work\\Portfolio\\CaseStudy-MachineLearning\\CSV"
+directory_path = "data/raw"
 
 # Import gender_submission.csv
-gender_submission = pd.read_csv(directory_path + '\\gender_submission.csv')
+gender_submission = pd.read_csv(f"{directory_path}/gender_submission.csv")
 
 # Import test.csv
-test_data = pd.read_csv(directory_path + '\\test.csv')
+test_data = pd.read_csv(f"{directory_path}/test.csv")
 
 # Import train.csv
-train_data = pd.read_csv(directory_path + '\\train.csv')
+train_data = pd.read_csv(f"{directory_path}/train.csv")
 
 # Create copies of the datasets
 gender_submission_copy = gender_submission.copy()
