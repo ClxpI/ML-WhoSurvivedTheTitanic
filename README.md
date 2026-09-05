@@ -4,7 +4,7 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3+-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> **Executive Summary:** An end-to-end Machine Learning classification project analyzing passenger demographic and logistical data from the RMS Titanic to predict survival probabilities. Features automated data imputation, custom domain feature engineering, cross-validation, hyperparameter tuning, and a benchmark comparison across 8 classification algorithms achieving an optimal model accuracy of **84.36%** and an **ROC AUC of 0.84**.
+> **Executive Summary:** A supervised Machine Learning classification project analyzing passenger demographic and logistical data from the RMS Titanic to predict survival. A Random Forest classifier is trained on an 80/20 train-test split after median/mode imputation and one-hot encoding, reaching **81.6% test accuracy** and a **ROC AUC of 0.90**.
 
 ---
 
@@ -22,49 +22,35 @@ Exploratory Data Analysis (EDA) revealed significant survival correlations based
 ## 💻 Tech Stack & Tooling
 
 *   **Language:** Python 3.11
-*   **Data Processing & Analytics:** Pandas, NumPy
+*   **Data Processing & Analytics:** Pandas
 *   **Machine Learning Framework:** Scikit-Learn
-*   **Visualization:** Matplotlib, Seaborn
+*   **Visualization:** Matplotlib
 *   **Development Environment:** Spyder / Anaconda / Google Colab
 
 ---
 
-## 🧠 Computer Science & Machine Learning Concepts Applied
+## 🧠 Approach
 
-This project demonstrates advanced supervised machine learning principles and software engineering practices:
+`src/main.py` implements a straightforward, reproducible classification pipeline:
 
-*   **Robust Data Preprocessing:** Automated handling of missing data using median imputation for numeric attributes (`Age`, `Fare`) and mode imputation for categorical features (`Embarked`).
-*   **Feature Engineering & Extraction:** 
-    *   Extracted socio-economic titles (`Mr`, `Mrs`, `Miss`, `Master`) from passenger names via Regular Expressions.
-    *   Engineered `FamilySize` (`SibSp` + `Parch` + 1) and tracked family survival probabilities through ticket and surname linkage (`Family_Survival`).
-*   **Feature Scaling & Categorical Encoding:** Applied `StandardScaler` to numerical attributes and `OneHotEncoder` / `LabelEncoder` to categorical vectors.
-*   **Ensemble Learning & Model Selection:** Evaluated and benchmarked 8 distinct classifiers (Random Forest, Logistic Regression, Gaussian Naïve Bayes, SVM, Decision Trees, KNN, Perceptron, SGD).
-*   **Validation & Optimization:** Employing 5-Fold Cross-Validation to evaluate model stability ($\mu = 80.93\%, \sigma = 0.0488$) and utilized `GridSearchCV` for fine-tuning Random Forest hyperparameters.
+*   **Data Preprocessing:** Median imputation for missing `Age` values and mode imputation for missing `Embarked` values.
+*   **Categorical Encoding:** One-hot encoding of `Sex` and `Embarked` via `pandas.get_dummies`.
+*   **Model:** A single `RandomForestClassifier` (`n_estimators=100`, `min_samples_split=10`, `min_samples_leaf=2`, `max_features='sqrt'`, `random_state=42`).
+*   **Evaluation:** An 80/20 train-test split, scored via a ROC curve and ROC AUC (no cross-validation or hyperparameter search is performed).
 
 ---
 
-## 📈 Model Performance Benchmark
+## 📈 Model Performance
 
-All 8 algorithms were trained and evaluated under standardized train-test splits:
+Reproduced directly from `src/main.py` on the held-out 20% test split (`random_state=42`):
 
-| Algorithm | Model Type | Test Accuracy | Status |
-| :--- | :--- | :---: | :---: |
-| **Random Forest (Refined & Selected)** | **Ensemble Tree** | **84.36%** | **Best Model** |
-| Random Forest (Initial Baseline) | Ensemble Tree | 82.12% | Baseline |
-| Logistic Regression | Linear Model | 80.45% | Strong Baseline |
-| Gaussian Naïve Bayes | Probabilistic | 78.21% | Evaluated |
-| Linear Support Vector Machine (SVM) | Kernel/Margin | 77.65% | Evaluated |
-| Decision Tree | Single Tree | 75.42% | Evaluated |
-| K-Nearest Neighbors (KNN) | Distance-Based | 65.92% | Evaluated |
-| Perceptron | Neural / Linear | 62.01% | Evaluated |
-| Stochastic Gradient Descent (SGD) | Optimization | 59.22% | Evaluated |
-
-### Optimal Model Diagnostic Metrics (Tuned Random Forest)
-
-*   **Precision:** 80.60% *(High confidence in positive survival predictions)*
-*   **Recall:** 72.97% *(Effective identification of actual survivors)*
-*   **F1-Score:** 77.46% *(Harmonic mean demonstrating balanced classification)*
-*   **ROC AUC Score:** 0.84 *(Strong discrimination capability between classes)*
+| Metric | Value |
+| :--- | :---: |
+| Accuracy | 81.6% |
+| Precision | 80.6% |
+| Recall | 73.0% |
+| F1-Score | 76.6% |
+| ROC AUC | 0.90 |
 
 ---
 
@@ -79,8 +65,11 @@ All 8 algorithms were trained and evaluated under standardized train-test splits
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/](https://github.com/)[YOUR_GITHUB]/titanic-survival-prediction.git
-   cd titanic-survival-prediction
-```
-
-```
+   git clone https://github.com/ClxpI/ML-WhoSurvivedTheTitanic.git
+   cd ML-WhoSurvivedTheTitanic
+   ```
+2. **Install dependencies and run:**
+   ```bash
+   pip install -r requirements.txt
+   python src/main.py
+   ```
